@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {Button, Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import {validateCommentForm} from '../../utils/validateCommentForm';
-import { addComment } from "./commentsSlice";
+import { addComment, postComments } from "./commentsSlice";
 
 
 const CommentForm = ({ campsiteId }) => {
@@ -20,6 +20,7 @@ const CommentForm = ({ campsiteId }) => {
         };
         console.log(comment);
         dispatch(addComment(comment));
+        dispatch(postComments(comment));
         setModalOpen(false);
     };
 
